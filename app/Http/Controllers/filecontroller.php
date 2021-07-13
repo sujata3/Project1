@@ -16,7 +16,7 @@ class filecontroller extends Controller
     public function add(Request $request)
     {
             $request->validate([
-                'username'=>'required|email|max:255:demos',
+                'username'=>'regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix|required|unique:demos',
                 'password'=>'required'
             ]);
 
