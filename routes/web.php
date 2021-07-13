@@ -25,7 +25,6 @@ Route::post('/form',[filecontroller::class, 'add']) ->name('user.add');
 Route::view('/submit','Hello');
 
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-// Route::post('/form',[filecontroller::class, 'successlogin' ]);
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

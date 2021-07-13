@@ -16,8 +16,8 @@ class filecontroller extends Controller
     public function add(Request $request)
     {
             $request->validate([
-                'username'=>'required|email:demos',
-                'password'=>'required|alphaNum|min:3'
+                'username'=>'required|email|max:255:demos',
+                'password'=>'required'
             ]);
 
             $query=DB::table('demos')->insert([
@@ -30,26 +30,11 @@ class filecontroller extends Controller
             else{
                 return back()->with('fail','Something went wrong, try again');
             }
-            $user_data = array(
-                'username'=> $request->get('username'),
-                'password' => $request->get('password')
-            );
 
-            if(Auth::attempt($user_data)){
-                return redirect('user.add');
-            }
-            else{
-                return back()->with('error', 'Wrong login details');
-            }
+
+
     }
-    Function successlogin(){
-        return view('Hello.Successlogin');
-    }
-    // function logout()
-    // {
-    //     Auth::logout();
-    //     return redirect('user.add');
-    // }
+
 }
          
 
